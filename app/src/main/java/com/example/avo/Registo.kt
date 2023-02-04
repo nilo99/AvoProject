@@ -24,7 +24,6 @@ class Registo : AppCompatActivity() {
         database = FirebaseDatabase.getInstance()
 
         val upfname : EditText = findViewById(R.id.firstnameText)
-        val uplname : EditText = findViewById(R.id.lastnameText)
         val upemail : EditText = findViewById(R.id.emailText)
         val uppassword : EditText = findViewById(R.id.passwordText)
         val upbutton : Button = findViewById(R.id.registoButton)
@@ -38,20 +37,15 @@ class Registo : AppCompatActivity() {
 
         upbutton.setOnClickListener {
             val fname = upfname.text.toString()
-            val lname = uplname.text.toString()
             val email = upemail.text.toString()
             val password = uppassword.text.toString()
 
-            if(fname.isEmpty() || lname.isEmpty() ||email.isEmpty()||!Patterns.EMAIL_ADDRESS.matcher(email).matches() || password.isEmpty()||password.length < 6)
+            if(fname.isEmpty() ||email.isEmpty()||!Patterns.EMAIL_ADDRESS.matcher(email).matches() || password.isEmpty()||password.length < 6)
             {
 
                 if(fname.isEmpty())
                 {
                     upfname.error = "O Campo Primeiro Nome é Obrigatorio"
-                }
-                if(lname.isEmpty())
-                {
-                    uplname.error = "O Campo Ultimo Nome é Obrigatorio"
                 }
                 if(email.isEmpty())
                 {
@@ -78,7 +72,7 @@ class Registo : AppCompatActivity() {
 
                     if(it.isSuccessful) {
                         val databaseRef = database.reference.child("Users").child(auth.currentUser!!.uid)
-                        val users : Users = Users(fname,lname,email,password,auth.currentUser!!.uid)
+                        val users : Users = Users(fname,email,password,auth.currentUser!!.uid)
 
                         databaseRef.setValue(users).addOnCompleteListener {
                             if(it.isSuccessful)

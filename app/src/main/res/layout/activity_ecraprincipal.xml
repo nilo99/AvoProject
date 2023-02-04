@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/loginbkg"
     tools:context=".Registo">
 
     <androidx.cardview.widget.CardView

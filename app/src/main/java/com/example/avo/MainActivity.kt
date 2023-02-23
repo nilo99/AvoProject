@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         checkUser()
 
         binding.signupText.setOnClickListener {
-            startActivity(Intent(this, Registo::class.java))
+            startActivity(Intent(this, Regi2::class.java))
         }
 
         binding.loginButton.setOnClickListener {

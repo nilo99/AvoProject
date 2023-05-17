@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "781497180173",
+    "project_id": "avoproject-655fa",
+    "storage_bucket": "avoproject-655fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781497180173:android:c8b935bc57276a577cb544",
+        "android_client_info": {
+          "package_name": "com.example.avo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "781497180173-g2dl587tec8frp0tlnq8br2h2gc3bol2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiB1c0aQtqITCV5_4J0A47QowU-GP-uJg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "781497180173-g2dl587tec8frp0tlnq8br2h2gc3bol2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

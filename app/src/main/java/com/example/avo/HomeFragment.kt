@@ -76,7 +76,7 @@ class HomeFragment : Fragment() {
         userRecyclerView = view.findViewById(R.id.recycle)
         userRecyclerView.layoutManager = LinearLayoutManager(context)
         userRecyclerView.setHasFixedSize(true)
-        adapter = MyAdapter()
+        adapter = MyAdapter(requireContext())
         userRecyclerView.adapter = adapter
 
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)

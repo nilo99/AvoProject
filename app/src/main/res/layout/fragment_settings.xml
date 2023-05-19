@@ -149,8 +149,6 @@
                         />
 
                 </RelativeLayout>
-
-                <!-- Private Account -->
                 <RelativeLayout
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
@@ -158,9 +156,82 @@
 
                     <ImageView
                         android:layout_width="40dp"
-                        android:id="@+id/privateAccountIcon"
+                        android:id="@+id/SecurityIcon"
                         android:layout_height="40dp"
-                        android:src="@drawable/protectd_100px"
+                        android:src="@drawable/bell_50px"
+                        android:background="@drawable/round_back_security"
+                        android:padding="12sp"/>
+                    <TextView
+                        android:layout_marginStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Security &amp; Privacy"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:layout_toEndOf="@+id/SecurityIcon" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/right_arrow"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+
+                <!-- Languages -->
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:id="@+id/LanguageIcon"
+                        android:layout_height="40dp"
+                        android:src="@drawable/translation_50px"
+                        android:background="@drawable/round_back_notification"
+                        android:padding="12sp"/>
+                    <TextView
+                        android:layout_marginStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Languages"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:layout_toEndOf="@+id/LanguageIcon" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/right_arrow"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/round_back_white10_20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <!-- Send Us Messages -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:id="@+id/sendUsMessageIcon"
+                        android:layout_height="40dp"
+                        android:src="@drawable/letter_50px"
                         android:background="@drawable/round_back_private"
                         android:padding="12sp"/>
                     <TextView
@@ -168,32 +239,74 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="Private Account"
+                        android:text="Send Us Messages"
                         android:textColor="#FFFFFF"
                         android:textStyle="bold"
-                        android:layout_toEndOf="@+id/privateAccountIcon" />
+                        android:layout_toEndOf="@+id/sendUsMessageIcon" />
 
-                    <androidx.appcompat.widget.SwitchCompat
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:src="@drawable/right_arrow"
                         android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:switchMinWidth="50dp"
-                        android:theme="@style/PrivateAccountSwitch"/>
-
+                        android:layout_centerVertical="true"/>
                 </RelativeLayout>
 
+                <!-- About us -->
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:id="@+id/aboutusIcon"
+                        android:layout_height="40dp"
+                        android:src="@drawable/about"
+                        android:background="@drawable/round_back_security"
+                        android:padding="12sp"/>
+                    <TextView
+                        android:layout_marginStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="About Us"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:layout_toEndOf="@+id/aboutusIcon" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/right_arrow"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layouttestid"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/logoutavo"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/teste"
+                        android:background="@drawable/round_back_security"
+                        android:padding="12sp"/>
+                    <TextView
+                        android:layout_marginStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Log Out"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:layout_toEndOf="@+id/logoutavo" />
+                </RelativeLayout>
             </LinearLayout>
-        <LinearLayout
-            android:background="@drawable/round_back_white10_20"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            android:padding="15dp">
-        </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

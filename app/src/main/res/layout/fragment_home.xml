@@ -1,45 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/materialcard_id"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="12dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/search_id"
+    <!-- Replace this FrameLayout with the code from the first XML snippet -->
+    <FrameLayout
+        android:id="@+id/sheetswipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:background="@drawable/btshape"
+        >
+        <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/menor"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/baseline_remove_24"
+                android:layout_centerHorizontal="true"
+                />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="wrap_content"
+                android:layout_height="0.8dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/black"
+                android:layout_below="@id/menor" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialcard_id"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:iconifiedByDefault="false"
-            app:queryBackground="@android:color/transparent"
-            app:queryHint="Search here ..." />
-    </com.google.android.material.card.MaterialCardView>
+            app:cardCornerRadius="8dp"
+            app:cardElevation="12dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialcard_id" />
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconifiedByDefault="false"
+                app:queryBackground="@android:color/transparent"
+                app:queryHint="Search here ..." />
+        </com.google.android.material.card.MaterialCardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_gravity="center"
+            android:layout_below="@+id/line"
+            android:id="@+id/recycle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialcard_id" />
+
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

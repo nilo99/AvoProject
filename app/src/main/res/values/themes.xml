@@ -26,6 +26,16 @@
         <item name = "android:colorForeground">#99FFFFFF</item>
     </style>
 
+    <style name="Theme.AppBottomSheetDialogTheme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="bottomSheetStyle">@drawable/btshape</item>
+    </style>
+
+
+
     <style name="PrivateAccountSwitch" parent="Theme.AppCompat.Light">
         <item name = "colorControlActivated">@color/private_account</item>
         <item name = "colorSwitchThumbNormal">#FFFFFF</item>

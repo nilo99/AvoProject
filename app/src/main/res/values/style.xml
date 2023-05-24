@@ -1,0 +1,11 @@
+<resources>
+    <style name="boxcolor" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/purple</item>
+        <item name="android:textColorSecondary">@color/black</item>
+    </style>
+
+    <style name="CheckboxTextAppearance" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+</resources>

@@ -35,6 +35,11 @@ import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.google.android.libraries.places.api.model.AutocompletePrediction
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.api.model.TypeFilter
+import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -50,6 +55,7 @@ private const val ARG_PARAM2 = "param2"
 private lateinit var viewModel: UserViewModel
 
 private lateinit var userRecyclerView: RecyclerView
+private lateinit var textid: TextInputLayout
 
 lateinit var adapter: MyAdapter
 
@@ -112,6 +118,8 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             }
         })
 
+
+
         childFragmentManager.beginTransaction()
             .replace(R.id.autocompleteContainer, autocompleteFragment)
             .commit()
@@ -160,6 +168,40 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                 LOCATION_PERMISSION_REQUEST_CODE
             )
         }
+
+        val announcementsRef = FirebaseDatabase.getInstance().reference.child("announcements")
+
+        announcementsRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                googleMap.clear() // Clear existing markers
+
+                for (announcementSnapshot in dataSnapshot.children) {
+                    val announcementId = announcementSnapshot.key
+                    val latitudeStr = announcementSnapshot.child("latitude").getValue(String::class.java)
+                    val longitudeStr = announcementSnapshot.child("longitude").getValue(String::class.java)
+
+                    if (announcementId != null && latitudeStr != null && longitudeStr != null) {
+                        val latitude = latitudeStr.toDouble()
+                        val longitude = longitudeStr.toDouble()
+                        val latLng = LatLng(latitude, longitude)
+
+                        val markerOptions = MarkerOptions()
+                            .position(latLng)
+                            .title(announcementId)
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.avomarker))
+
+                        val customMarker = googleMap.addMarker(markerOptions)
+                        // Store the custom marker if needed
+
+                        // Perform any other actions with the marker
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Handle the error
+            }
+        })
 
     }
 

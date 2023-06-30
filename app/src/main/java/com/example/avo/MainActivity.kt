@@ -1,5 +1,6 @@
 package com.example.avo
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         checkUser()
 
         binding.signupText.setOnClickListener {
-            startActivity(Intent(this, Regi2::class.java))
+            startActivity(Intent(this, Registo::class.java))
         }
 
         binding.loginButton.setOnClickListener {
@@ -78,6 +79,14 @@ class MainActivity : AppCompatActivity() {
                     editor.apply()
                 }
 
+                val userId = FirebaseAuth.getInstance().currentUser?.uid
+
+                if (userId != null) {
+                    val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.putString("userId", userId)
+                    editor.apply()
+                }
                 startActivity(Intent(this, Mainscreen::class.java))
                 finish()
             }

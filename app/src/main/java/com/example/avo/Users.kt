@@ -1,11 +1,21 @@
 package com.example.avo
 import java.io.Serializable
 
-data class Users (
+
+data class Users(
+
+    var fname: String?,
+    var email:String?,
+    var uid:String?
+)
+    : Serializable
+data class adannoumenct (
+    var about : String? = null,
+    var address : String? = null,
+    var numberPeople : String? = null,
+    var latitude: String? = null,
+    var longitude: String? = null,
     var fname : String? = null,
-    var lname : String? = null,
-    var email : String? = null,
-    var password : String? = null,
-    var uid : String? = null,
-    var checkbox : String? = "0"
+    var adid : String? = null,
+var price : String?= null
 ) : Serializable

@@ -2,11 +2,12 @@ package com.example.avo.Repository
 
 import androidx.lifecycle.MutableLiveData
 import com.example.avo.Users
+import com.example.avo.adannoumenct
 import com.google.firebase.database.*
 
 class UserRepository {
 
-    private val databaseReference : DatabaseReference = FirebaseDatabase.getInstance().getReference("Users")
+    private val databaseReference : DatabaseReference = FirebaseDatabase.getInstance().getReference("announcements")
 
     @Volatile private var INSTANCE : UserRepository ?= null
 
@@ -19,15 +20,15 @@ class UserRepository {
         }
     }
 
-    fun loadUsers(userList : MutableLiveData<List<Users>>){
+    fun loadUsers(userList : MutableLiveData<List<adannoumenct>>){
         databaseReference.addValueEventListener(object  : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
 
                 try
                 {
-                    val _userList : List<Users> = snapshot.children.map { dataSnapshot ->
+                    val _userList : List<adannoumenct> = snapshot.children.map { dataSnapshot ->
 
-                        dataSnapshot.getValue(Users::class.java)!!
+                        dataSnapshot.getValue(adannoumenct::class.java)!!
                     }
 
                     userList.postValue(_userList)

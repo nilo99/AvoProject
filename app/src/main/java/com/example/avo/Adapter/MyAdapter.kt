@@ -12,16 +12,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.avo.R
 import com.example.avo.Repository.UserInfoActivity
 import com.example.avo.Users
+import com.example.avo.ViewAnnouncemnt
+import com.example.avo.adannoumenct
 
 class MyAdapter(private val context: Context) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
-    private var userList = emptyList<Users>()
+    private var userList = emptyList<adannoumenct>()
+
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView: TextView = itemView.findViewById(R.id.item_firstname)
         val emailTextView: TextView = itemView.findViewById(R.id.item_detalhes)
-        val phoneTextView: TextView = itemView.findViewById(R.id.marca)
         val cardView: CardView = itemView.findViewById(R.id.cards)
+        val price: TextView = itemView.findViewById(R.id.Preco)
+        val textView: TextView = itemView.findViewById(R.id.ad) // TextView com o id "id"
+
+        init {
+            textView.visibility = View.INVISIBLE // Torna a TextView invisível quando o ViewHolder é criado
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -32,12 +40,15 @@ class MyAdapter(private val context: Context) : RecyclerView.Adapter<MyAdapter.M
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentUser = userList[position]
         holder.nameTextView.text = currentUser.fname
-        holder.emailTextView.text = currentUser.email
-        holder.phoneTextView.text = currentUser.uid
+        holder.emailTextView.text = currentUser.about
+        holder.textView.text = currentUser.adid
+        holder.price.text = currentUser.price +   " €/hora"
 
         holder.cardView.setOnClickListener {
-            val intent = Intent(context, UserInfoActivity::class.java)
-            intent.putExtra("user", currentUser)
+            val context = holder.itemView.context
+            val intent = Intent(context, ViewAnnouncemnt::class.java)
+            intent.putExtra("testedeid", currentUser.adid)
+            // Add other values as needed
             context.startActivity(intent)
         }
     }
@@ -46,7 +57,7 @@ class MyAdapter(private val context: Context) : RecyclerView.Adapter<MyAdapter.M
         return userList.size
     }
 
-    fun updateUserList(newUserList: List<Users>) {
+    fun updateUserList(newUserList: List<adannoumenct>) {
         userList = newUserList
         notifyDataSetChanged()
     }

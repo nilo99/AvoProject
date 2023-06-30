@@ -72,7 +72,7 @@ class Registo : AppCompatActivity() {
 
                     if(it.isSuccessful) {
                         val databaseRef = database.reference.child("Users").child(auth.currentUser!!.uid)
-                        val users : Users = Users(fname,email,password,auth.currentUser!!.uid)
+                        val users : Users = Users(fname,email,auth.currentUser!!.uid)
 
                         databaseRef.setValue(users).addOnCompleteListener {
                             if(it.isSuccessful)

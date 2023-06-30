@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.avo.Repository.MyAnnouncemnt
 import com.example.avo.databinding.ActivityEcraprincipalBinding
 import com.example.avo.databinding.ActivityMainscreenBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -28,7 +29,14 @@ class Mainscreen : AppCompatActivity() {
 
                 R.id.nav_home -> replaceFragment(HomeFragment())
                 R.id.nav_settings -> replaceFragment(SettingsFragment())
-                R.id.nav_search -> replaceFragment(AdAnoucement())
+                R.id.nav_search -> {
+                    val intent = Intent(this, AdAnnouncement::class.java)
+                    startActivity(intent)
+                }
+                R.id.nav_like -> {
+                    val intent = Intent(this, MyAnnouncemnt::class.java)
+                    startActivity(intent)
+                }
 
                 else -> {
 

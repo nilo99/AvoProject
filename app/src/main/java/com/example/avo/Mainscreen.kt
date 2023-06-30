@@ -33,10 +33,6 @@ class Mainscreen : AppCompatActivity() {
                     val intent = Intent(this, AdAnnouncement::class.java)
                     startActivity(intent)
                 }
-                R.id.nav_like -> {
-                    val intent = Intent(this, MyAnnouncemnt::class.java)
-                    startActivity(intent)
-                }
 
                 else -> {
 
